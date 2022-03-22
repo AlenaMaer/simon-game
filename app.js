@@ -6,13 +6,24 @@ const app = new Vue({
             sequenceToGuess:[],
             userSequence:[],
             level:'easy',
+            speed:{
+                easy: 1500,
+                normal: 1000,
+                hard: 400
+            },
             topLeft: false,
             topRigth: false,
             bottomLeft: false,
             bottomRight: false,
             buttons: ["topLeft", "topRigth", "bottomLeft", "bottomRight"],
             canClick: false,
-            lose: false
+            lose: false,
+            sounds:{
+                topLeft: '1.mp3',
+                topRigth: '2.mp3',
+                bottomLeft: '3.mp3',
+                bottomRight: '4.mp3'
+            }
     },
     methods: {
         // Получить случайную кнопку 
@@ -32,35 +43,29 @@ const app = new Vue({
             this[btn] = true;
             setTimeout(() => {
                 this[btn] = false;
-                setTimeout(()=> resolve(),250);
-            }, time);
+                setTimeout(()=> resolve(),this.speed[this.level]);
+            }, 250);
             
             })
         },
         // Подсвечивание последовательности кнопок
         async flashSeq(){
-            let time = 0;
-            if(this.level==='easy'){
-                time = 1500;
-            } else if(this.level==='normal'){
-                time = 1000;
-            } else if(this.level==='hard'){
-                time = 500;
-            }
             for(item of this.sequence){
-                let audio = new Audio('/sounds/1.mp3'); // path to file
+                let audio = new Audio(`/sounds/${this.sounds[item]}`);
                 audio.play();
-                await this.flash(item,time);
+                await this.flash(item,250);
             }
         },
         // Проверяем, правильно ли нажата кнопка
         btnClicked(btn){
+            
             if(this.canClick){
-                // console.log(btn);
+                let audio = new Audio(`/sounds/${this.sounds[btn]}`);
+                audio.play();
                 let expectedBtn = this.sequenceToGuess.shift();
                 if (expectedBtn === btn){
                     if(this.sequenceToGuess.length === 0){
-                        setTimeout(() => this.startGame(),600);
+                        setTimeout(() => this.startGame(), 600);
                     } 
                 } else {
                     this.lose = true;
@@ -78,3 +83,5 @@ const app = new Vue({
         }
     }
 })
+
+vue.config.devtools = true;

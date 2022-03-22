@@ -17,8 +17,9 @@ h1{
     cursor: pointer;
 }
 .button:hover{
+    box-shadow: 0 0 10 #6c58b5;
+    box-shadow: inset 0 0 0 4px #6c58b5;
     box-sizing: border-box;
-    border: 2px solid #6c58b5;
 }
 .button:active{
     opacity: 1;
@@ -43,13 +44,14 @@ h1{
     background-color: #89ee91;
 }
 .game-control-panel, .game-options{
-    margin: 3%;
+    width: 10%;
+    margin: 0 3%;
 }
 .game-control-panel button{
     width: 8em;
     font-size: 1.3em;
     border: 2px solid #6c58b5;
-    background-color: rgba(137,238,145,0.6);
+    background-color: #fff;
     color: #6c58b5;
     padding: 2% 10%;
 }
@@ -59,4 +61,16 @@ h1{
 .game-over{
     font-size: 1.3em;
     color: #FF9A8E;
+}
+a{
+    display: block;
+    width: 150px;
+    height: 30px;
+    text-align: center;
+    text-decoration: none;
+    border: 2px solid #6c58b5;
+    background-color: #fff;
+    color: #6c58b5;
+    padding: 2% 10%;
+    font-size: 1.3em;
 }
