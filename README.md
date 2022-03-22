@@ -1,2 +1,3 @@
-# simon-game
-Simon game in Vue
+# Simon game
+
+Simon game only using Vue2
