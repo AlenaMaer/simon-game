@@ -48,6 +48,8 @@ const app = new Vue({
                 time = 500;
             }
             for(item of this.sequence){
+                let audio = new Audio('/sounds/1.mp3'); // path to file
+                audio.play();
                 await this.flash(item,time);
             }
         },
