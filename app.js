@@ -51,7 +51,7 @@ const app = new Vue({
         // Подсвечивание последовательности кнопок
         async flashSeq(){
             for(item of this.sequence){
-                let audio = new Audio(`/sounds/${this.sounds[item]}`);
+                let audio = new Audio(`/simon-music-game/sounds/${this.sounds[item]}`);
                 audio.play();
                 await this.flash(item,250);
             }
@@ -60,7 +60,7 @@ const app = new Vue({
         btnClicked(btn){
             
             if(this.canClick){
-                let audio = new Audio(`/sounds/${this.sounds[btn]}`);
+                let audio = new Audio(`/simon-music-game/sounds/${this.sounds[btn]}`);
                 audio.play();
                 let expectedBtn = this.sequenceToGuess.shift();
                 if (expectedBtn === btn){
