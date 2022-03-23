@@ -33,7 +33,6 @@ const app = new Vue({
         // Генерируем последовательность случайных кнопок
         getSequence(){
                 let elem = this.getRandButton();
-                console.log(elem);
                 this.sequence.push(elem);
                 return this.sequence;
         },
