@@ -25,7 +25,10 @@
                  v-bind:class="{ active: bottomRight }"></div>
             </div>
         </div>
-        <div v-show="round" class="game-options"><h2>You play on the level: {{level}}</h2></div>
+        <div v-show="round" class="game-options">
+            <h2>Game options:</h2>
+            <p>You are playing on <b>{{level}}</b> difficulty</p>
+        </div>
         <div v-show="!round" class="game-options">
             <h2>Game Options:</h2>
             <div>
