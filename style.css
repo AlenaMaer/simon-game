@@ -74,3 +74,21 @@ a{
     padding: 2% 10%;
     font-size: 1.3em;
 }
+
+@media (max-width:800px){
+    h1{
+        font-size: 1.7em;
+    }
+    h2{
+        font-size: 1.3em;
+    }
+    .button{
+        width: 70px;
+        height: 70px;
+    }
+    a{
+        font-size: 1em;
+        width: 70px;
+        height: 20px
+    }
+}

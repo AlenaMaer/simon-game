@@ -43,8 +43,8 @@ const app = new Vue({
             this[btn] = true;
             setTimeout(() => {
                 this[btn] = false;
-                setTimeout(()=> resolve(),this.speed[this.level]);
-            }, 250);
+                setTimeout(()=> resolve(),150);
+            }, this.speed[this.level]);
             
             })
         },
@@ -53,7 +53,7 @@ const app = new Vue({
             for(item of this.sequence){
                 let audio = new Audio(`/simon-music-game/sounds/${this.sounds[item]}`);
                 audio.play();
-                await this.flash(item,250);
+                await this.flash(item,this.speed[this.level]);
             }
         },
         // Проверяем, правильно ли нажата кнопка
